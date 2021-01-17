@@ -1,0 +1,136 @@
+<!--
+    Author: Oleksandr Levinskyi;
+    Date: 03/29/2020;
+
+    Image source: https://images.app.goo.gl/qNc7sV3JBEdYpsVr8;
+-->
+
+<%- include('layouts/header'); -%>
+<body>
+    <%- include('layouts/logo'); -%>
+    <section id="section2">
+        <form name="puchaseForm" method="Post" onsubmit="return OnSubmit();" action="">
+            <label for="name">Name*</label>
+            <input id="name" type="text" name="name"><br>
+            <label for="email">Email*</label>
+            <input id="email" type="text" name="email"><br>
+            <label for="phone">Phone*</label>
+            <input id="phone" type="text" placeholder="xxx-xxx-xxxx" name="phone"><br>
+            <label for="address">Address*</label>
+            <input id="address" type="text" name="address"><br>
+            <label for="city">City*</label>
+            <input id="city" type="text" name="city"><br>
+            <label for="postcode">Postal Code*</label>
+            <input id="postcode" type="text" placeholder="X9X X9X" name="postcode"><br>
+            
+            <label>Province*</label>
+            <select id="province" name="province">
+                <option value="">----- Select -----</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="QC">Quebec</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+                <option value="YT">Yukon</option>
+            </select><br>
+            
+            <label for="potSmall">Small Pot</label>
+            <input id="potSmall" type="text" placeholder="Enter a number" name="potSmall"><br>
+            <label for="potMedium">Medium Pot</label>
+            <input id="potMedium" type="text" placeholder="Enter a number" name="potMedium"><br>
+            <label for="potBig">Big Pot</label>
+            <input id="potBig" type="text" placeholder="Enter a number" name="potBig"><br>
+    
+            <label>Delivery Time</label>
+            <select id="deliveryTime" name="deliveryTime">
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="4">4 days</option>
+            </select><br><br>
+    
+            <input id="button" type="submit" value="Place Order">
+            <p id="errors"></p>
+        </form>
+        
+        <div id="receipt">
+            <%
+            if(typeof(errors)!='undefined'){
+                %>
+                    <h3>Correct the errors below to view your receipt:</h3>
+                <%
+                for(var error of errors){
+                %>
+                    <p><%= error.msg %></p>
+                <%
+                }
+            }
+            else if(typeof(total)!='undefined' && !isNaN(total)){
+            %>
+                <h1>Receipt</h1>
+                <table id="mainTable">
+                    <tr>
+                        <th>Name:</th>
+                        <td><span style="color:#6abb20;"><%= name %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td><span style="color:#6abb20;"><%= email %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <td><span style="color:#6abb20;"><%= phone %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Delivery Address:</th>
+                        <td><span style="color:#6abb20;"><%= deliveryAddress %></span></td>
+                    </tr>
+                    <tr>
+                        <th><%= potSmall %> Small Pot(s) * $10.00:</th>
+                        <td><span style="color:#6abb20;">$<%= (potSmall*10).toFixed(2) %></span></td>
+                    </tr>
+                    <tr>
+                        <th><%= potMedium %> Medium Pot(s) * $20.00:</th>
+                        <td><span style="color:#6abb20;">$<%= (potMedium*20).toFixed(2) %></span></td>
+                    </tr>
+                    <tr>
+                        <th><%= potBig %> Big Pot(s) * $30.00:</th>
+                        <td><span style="color:#6abb20;">$<%= (potBig*30).toFixed(2) %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Shipping Charges:</th>
+                        <td><span style="color:#6abb20;">$<%= shippingCharge.toFixed(2) %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Sub Total:</th>
+                        <td><span style="color:#6abb20;">$<%= subTotal.toFixed(2) %></span></td>
+                    </tr>
+                    <tr>
+                        <th>Taxes (<%= tax %>%):</th>
+                        <td><span style="color:#6abb20;">$<%= taxPayed %></span></td>
+                    </tr>
+                    <tr class="lastRow">
+                        <th>Total:</th>
+                        <td><span style="color:#6abb20;font-weight:700;">$<%= total %></span></td>
+                    </tr>
+                </table>
+            <%
+            }
+            else{
+            %>
+                <h1>Receipt</h1>
+                <p id="receiptDisplay">Input valid data to view your receipt.</p>
+            <%
+            }
+            %>
+        </div>
+    </section>
+</body>
+</html>

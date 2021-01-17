@@ -1,0 +1,153 @@
+/*
+    Author: Oleksandr Levinskyi;
+    Date: 03/29/2020;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Sriracha', cursive;
+}
+
+#section1,
+#section2 {
+    width: 50%;
+    position: relative;
+}
+
+#section1 {
+    float: left;
+}
+
+#section2 {
+    float: right;
+}
+
+#title {
+    font-size: 70px;
+    font-family: 'Lacquer', sans-serif;
+    margin: 0 auto;
+    width: fit-content;
+    color: #6abb20;
+}
+
+img {
+    width: 100%;
+}
+
+form,
+#receipt {
+    width: 500px;
+    border: 5px solid #ff7820;
+    box-shadow: 10px 10px 0 #fdab5e;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#errors {
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    width: 240px;
+    display: inline-block;
+}
+
+select,
+input {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-family: 'Sriracha', cursive;
+    width: 230px;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 254px;
+}
+
+input#button {
+    width: 200px;
+    border: none;
+    padding: 5px;
+    background-color: #ff5c00;
+    box-shadow: 5px 5px 0 #fdab5e;
+    font-size: 25px;
+    margin: 0 10px;
+    color: white;
+}
+
+input#button:hover {
+    background-color: #6abb20;
+    box-shadow: 5px 5px 0 #addb44;
+}
+
+#errors {
+    color: #ff5c00;
+    text-align: center;
+    line-height: 30px;
+    font-size: 25px;
+    font-family: 'Sriracha', cursive;
+}
+
+table#mainTable th {
+    text-align: left;
+    width: 50%;
+}
+
+table#mainTable tr {
+    font-size: .7em;
+}
+
+table#mainTable tr.lastRow {
+    font-size: 1em;
+}
+
+nav {
+    text-decoration: none;
+    margin: 5px auto;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    background-color: #6abb20;
+    box-shadow: 5px 5px 0 #addb44;
+    display: inline-block;
+    margin: 10px;
+    width: 40%;
+    height: fit-content;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+nav ul li:hover {
+    background-color: #ff5c00;
+    box-shadow: 5px 5px 0 #fdab5e;
+}
+
+table#allOrders {
+    border: 2px solid #ff5c00;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: .7em;
+    box-shadow: 5px 5px 0 #fdab5e;
+}
+
+table#allOrders th,
+table#allOrders td {
+    border: 2px solid #ff5c00;
+    padding: 7px;
+}
+
+table#allOrders th {
+    font-size: 1.2em;
+}
